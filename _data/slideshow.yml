@@ -1,0 +1,14 @@
+# main의 slideshow 설정
+#
+
+- text: ''
+  img: 'assets/learning-analytics.png'
+  link: ''
+
+# - text: '2번 :)'
+#   img: 'https://www.w3schools.com/howto/img_nature_wide.jpg'
+#   link: ''
+
+# - text: '3번 :)'
+#   img: ''
+#   link: ''

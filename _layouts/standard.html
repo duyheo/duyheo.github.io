@@ -1,0 +1,38 @@
+---
+layout: base
+---
+
+{% include header.html type="page" %}
+<div class="container">
+  <div class="row">
+    <nav class="col-md-2">
+      <div class="panel ">
+        <div class="panel-body">
+          <center>
+            <span style="font-family: 'Montserrat'">L I S T</span><br />
+          </center>
+          <hr class="center" />
+          <ul class="caption">
+            {% assign postsBySubtitle =
+            site.categories.standard | group_by:"subtitle" %}
+            {% for item in postsBySubtitle %}
+            {% if item.name == page.subtitle %}
+            {% for post in item.items reversed %}
+            <li class="" style="margin-bottom:5px">
+              <a href="{{ post.url }}">{{ post.title }}</a>
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+        {% endif %}
+        {% endfor %}
+      </div>
+      <a href="/category/standard" class="btn btn-link btn-md" role="button">표준목록으로 돌아가기</a>
+    </nav>
+    <div class="col-lg-10 col-md-12">
+      {{ content }}
+    </div>
+
+  </div>
+
+</div>

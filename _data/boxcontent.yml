@@ -1,0 +1,17 @@
+# main의 IMS Global event 일정
+
+box1:
+  -
+    title: 'IMS Europe Summit 2018'
+    date: '2018. 11. 8 ~ 9'
+    venue: 'Utrecht, Netherlands'
+
+  -
+    title: 'IMS November 2018 Quarterly Meeting & Learning Analytics Summit'
+    date: '2018. 11. 12 ~ 15'
+    venue: 'Suwanee, Georgia'
+
+# temporary
+#
+
+#- event:

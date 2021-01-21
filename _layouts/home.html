@@ -1,0 +1,128 @@
+---
+layout: base
+---
+
+<div class="intro-header big-img">
+</div>
+<div role="main" class="container">
+  {%include slide.html slide=site.data.slideshow %}
+  <div class="row">
+    <div class="main-explain-area">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-4 col-sm-6">
+      <div class="card">
+        <div class="card-head">
+          <i class="fas fa-calendar-alt fa-3x" style="color:LightSlateGrey"></i>
+          <h3>IMS Global Uncoming Meetings & Events</h3>
+        </div>
+        <div class="container-fluid">
+          {% for data in site.data.boxcontent.box1 %}
+          <h4>{{data.title}}</h4>
+          <ul>
+            <li>
+              Date : {{data.date}}
+            </li>
+            <li>
+              Venue : {{data.venue}}
+            </li>
+          </ul>
+          {% endfor %}
+          <div class="text-right">
+            <a href="http://www.imsglobal.org" class="btn btn-link btn-md" role="button">more</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4 col-sm-6">
+      <div class="card">
+        <div class="card-head">
+          <i class="fas fa-bullhorn fa-3x" style="color:CadetBlue "></i>
+          <h3>2018 이러닝 컨퍼런스 학습 분석 워크숍</h3>
+        </div>
+        <div class="container-fluid">
+          ㅁ 기간: 2018. 9. 14(금) ~ 15(토)<br />
+          ㅁ 장소: COEX 318호<br />
+          ㅁ 주요내용
+          </br />
+          <ul>
+            <li>
+              학습 분석을 위한 데이터 수집 기술 워크숍
+            </li>
+            <li>
+              인공지능 기반 학습 분석 동향 및 활용사례 세미나
+            </li>
+          </ul>
+          <div class="text-right">
+            <a href="/conference" class="btn btn-link btn-md" role="button">more</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4 col-sm-6">
+      <div class="card">
+        <div class="card-head">
+          <i class="fas fa-archive fa-3x" style="color:Tan"></i>
+          <h3>자료</h3>
+        </div>
+        <div class="container-fluid">
+          <div class="text-center">
+            <span style="font-family: 'Montserrat'">H O R I Z O N</span><br />
+            <br />
+          </div>
+          <ul>
+            {% for data in site.data.horizon limit:2 %}
+            <li>
+              <a href="{{data.pdf_path}}" target="_blank">{{data.title}}</a>
+            </li>
+            {% endfor %}
+          </ul>
+          <div class="text-right">
+            <a href="/horizon" class="btn btn-link btn-md" role="button">more</a>
+          </div>
+          <hr />
+          <div class="text-center">
+            <span style="font-family: 'Montserrat'">이 슈 리 포 트</span><br /><br />
+          </div>
+          <ul>
+            {% for data in site.data.issueReport limit:2 %}
+            <li>
+              <a href="{{data.pdf_path}}" target="_blank">{{data.title}}</a>
+            </li>
+            {% endfor %}
+          </ul>
+          <div class="text-right">
+            <a href="/issueReport" class="btn btn-link btn-md" role="button">more</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="container-fluid">
+      {{content}}
+    </div>
+  </div>
+  <div class="row">
+    <div class="container-fluid">
+      {% for post in site.categories.standard limit:3 %}
+      <a href="{{post.url}}">{{post.title}}</a>
+      <hr />
+      {% endfor %}
+      {% assign postsBySubtitle =
+      site.categories.standard | group_by:"subtitle" %}
+      {% for item in postsBySubtitle %}
+      {% if item.name == "학습 활동 데이터 수집 프로파일" %}
+      {% for post in item.items reversed %}
+      <a href="{{ post.url }}">{{ post.title }}</a>
+      <hr />
+      {% endfor %}
+      {% endif %}
+      {% else %}
+      {% break %}
+      {% endfor %}
+    </div>
+  </div>
+
+</div>
